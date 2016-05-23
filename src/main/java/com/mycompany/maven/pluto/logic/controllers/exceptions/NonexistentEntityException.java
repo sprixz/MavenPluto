@@ -1,4 +1,4 @@
-package com.mycompany.maven.pluto.controllers.exceptions;
+package com.mycompany.maven.pluto.logic.controllers.exceptions;
 
 public class NonexistentEntityException extends Exception {
     public NonexistentEntityException(String message, Throwable cause) {

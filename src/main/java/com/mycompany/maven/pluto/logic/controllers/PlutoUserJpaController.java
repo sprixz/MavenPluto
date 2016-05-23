@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.maven.pluto.controllers;
+package com.mycompany.maven.pluto.logic.controllers;
 
-import com.mycompany.maven.pluto.controllers.exceptions.NonexistentEntityException;
+import com.mycompany.maven.pluto.logic.controllers.exceptions.NonexistentEntityException;
 import com.mycompany.maven.pluto.logic.entities.PlutoUser;
 import java.io.Serializable;
 import java.util.List;

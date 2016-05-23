@@ -1,4 +1,4 @@
-package com.mycompany.maven.pluto.controllers.exceptions;
+package com.mycompany.maven.pluto.logic.controllers.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;

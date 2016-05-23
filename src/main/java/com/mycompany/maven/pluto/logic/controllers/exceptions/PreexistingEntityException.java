@@ -1,4 +1,4 @@
-package com.mycompany.maven.pluto.controllers.exceptions;
+package com.mycompany.maven.pluto.logic.controllers.exceptions;
 
 public class PreexistingEntityException extends Exception {
     public PreexistingEntityException(String message, Throwable cause) {
