@@ -39,6 +39,7 @@ import com.mycompany.maven.pluto.gui.tablemodel.UserTableModel;
 import com.mycompany.maven.pluto.logic.DataSource;
 import com.mycompany.maven.pluto.logic.entities.PlutoUser;
 import com.mycompany.maven.pluto.logic.entities.Subject;
+import java.net.URL;
 
 /**
  *
@@ -61,7 +62,7 @@ public class PlutoFrame extends JFrame {
     JCheckBox isteacher = new JCheckBox("Tanár");
     JButton login = new JButton("Belépés");
     JButton registration = new JButton("Regisztráció");
-    ImageIcon realpluto = createImageIcon("images/plutoreal.jpg","");
+    ImageIcon realpluto = createImageIcon("C:/Users/Varga Bence/Documents/NetBeansProjects/MavenPluto/images/plutoreal.jpg","");
     JLabel realplutopic = new JLabel(realpluto);
 
     //REGISZTRÁCIÓS KOMPONENSEK
