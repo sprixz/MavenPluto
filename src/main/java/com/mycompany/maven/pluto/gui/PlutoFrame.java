@@ -182,10 +182,16 @@ public class PlutoFrame extends JFrame {
 
     JButton addsubtomylist;
 
+    /**
+     *
+     */
     public PlutoFrame() {
         gui();
     }
 
+    /**
+     *
+     */
     public void studentGui() {
         pluto.setVisible(false);
         studentframe.setVisible(true);
@@ -891,6 +897,9 @@ public class PlutoFrame extends JFrame {
         return wrong;
     }
 
+    /**
+     *
+     */
     public void teacherGui() {
         teacherframe.setVisible(true);
         teacherframe.setTitle("Plutó hallgatói tanulmányirendszer - TANÁR");
@@ -1281,6 +1290,11 @@ public class PlutoFrame extends JFrame {
 
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public String[] delsubDetalis(String id) {
         String[] det = new String[5];
         for (int i = 0; i < subModel.getRowCount(); i++) {
@@ -1298,6 +1312,10 @@ public class PlutoFrame extends JFrame {
         return det;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean alreadyExistSub() {
         boolean exist = false;
         int size = subModel.getRowCount();
@@ -1313,6 +1331,10 @@ public class PlutoFrame extends JFrame {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean roomIsTaken() {
         boolean taken = false;
         int size = subModel.getRowCount();
@@ -1329,6 +1351,10 @@ public class PlutoFrame extends JFrame {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean teacherIsTeaching() {
         boolean teach = false;
         int size = subModel.getRowCount();
@@ -1344,6 +1370,10 @@ public class PlutoFrame extends JFrame {
         return teach;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSelectedSemester() {
         int sem = 0;
 
@@ -1365,10 +1395,19 @@ public class PlutoFrame extends JFrame {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSubjectTime() {
         return comboDay.getSelectedItem() + " " + comboHour.getSelectedItem();
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public Subject getReqSubject(String name) {
         Subject reqsubb = new Subject();
         for (int i = 0; i < subModel.getRowCount(); i++) {
@@ -1381,7 +1420,12 @@ public class PlutoFrame extends JFrame {
         return reqsubb;
     }
     
-    
+    /**
+     *
+     * @param path
+     * @param description
+     * @return
+     */
     protected ImageIcon createImageIcon(String path,
                                            String description) {
     java.net.URL imgURL = getClass().getResource(path);

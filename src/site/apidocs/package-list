@@ -1,0 +1,7 @@
+com.mycompany.maven.pluto
+com.mycompany.maven.pluto.controllers
+com.mycompany.maven.pluto.controllers.exceptions
+com.mycompany.maven.pluto.gui
+com.mycompany.maven.pluto.gui.tablemodel
+com.mycompany.maven.pluto.logic
+com.mycompany.maven.pluto.logic.entities

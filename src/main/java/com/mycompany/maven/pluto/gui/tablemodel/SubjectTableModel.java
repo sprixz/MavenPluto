@@ -22,17 +22,31 @@ import com.mycompany.maven.pluto.controllers.exceptions.NonexistentEntityExcepti
  */
 public class SubjectTableModel extends AbstractTableModel {
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getRowCount() {
         return DataSource.getInstance().getSubjectController().getSubjectCount();
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getColumnCount() {
         return Subject.fields.length;
     }
 
+    /**
+     *
+     * @param rowIndex
+     * @param columnIndex
+     * @return
+     */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Subject subjects = DataSource.getInstance().getSubjectController().findSubjectEntities().get(rowIndex);
@@ -57,16 +71,32 @@ public class SubjectTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param rowIndex
+     * @param columnIndex
+     * @return
+     */
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return columnIndex == 6;
     }
 
+    /**
+     *
+     * @param column
+     * @return
+     */
     @Override
     public String getColumnName(int column) {
         return Subject.fields[column];
     }
 
+    /**
+     *
+     * @param columnIndex
+     * @return
+     */
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
@@ -89,8 +119,10 @@ public class SubjectTableModel extends AbstractTableModel {
 
     }
 
-   
-
+    /**
+     *
+     * @return
+     */
     public Object[] currentSubjects() {
 
         int arraysize = getRowCount();
@@ -107,6 +139,10 @@ public class SubjectTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] currentSubjectsId() {
         fireTableDataChanged();
         int arraysize = getRowCount();
@@ -122,6 +158,11 @@ public class SubjectTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param subname
+     * @return
+     */
     public String[] currentReqSubject(String subname) {
         ArrayList<String> segedlista = new ArrayList<>();
         String[] subarray = new String[segedlista.size()];
@@ -143,6 +184,10 @@ public class SubjectTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param currentid
+     */
     public void deleteThisSubject(int currentid) {
 
         for (int i = 0; i < getRowCount(); i++) {
@@ -157,6 +202,11 @@ public class SubjectTableModel extends AbstractTableModel {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Subject getmySubject(int id) {
         Subject mysub = new Subject();
         for (int i = 0; i < getRowCount(); i++) {
@@ -169,6 +219,11 @@ public class SubjectTableModel extends AbstractTableModel {
         return mysub;
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     public Object[][] getThisUserData(PlutoUser user) {
 
         Object[][] data = new Object[user.getSubjects().size()][getColumnCount()];
@@ -181,6 +236,10 @@ public class SubjectTableModel extends AbstractTableModel {
         return data;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] getColumnName() {
         String[] columnName = new String[getColumnCount()];
         for (int i = 0; i < getColumnCount(); i++) {
@@ -189,6 +248,11 @@ public class SubjectTableModel extends AbstractTableModel {
         return columnName;
     }
     
+    /**
+     *
+     * @param sub
+     * @return
+     */
     public boolean isThisSubejtARequirent(Subject sub){
         
         
@@ -204,6 +268,12 @@ public class SubjectTableModel extends AbstractTableModel {
     }
    
     // a tárgy melyik tárgy(tárgyaknak) az előfeltétele
+
+    /**
+     *
+     * @param sub
+     * @return
+     */
     public String whatIsThisSubject(Subject sub){
         String result="";
         
@@ -217,7 +287,11 @@ public class SubjectTableModel extends AbstractTableModel {
         return result.substring(0, result.length()-2);
     } 
     
-    
+    /**
+     *
+     * @param user
+     * @return
+     */
     public List<Subject> getThisUserFulfilledSubject(PlutoUser user){
         List<Subject> sub = new ArrayList<>();
         

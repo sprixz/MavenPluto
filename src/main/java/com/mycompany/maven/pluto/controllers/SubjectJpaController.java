@@ -22,15 +22,27 @@ import javax.persistence.criteria.Root;
  */
 public class SubjectJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public SubjectJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param subject
+     */
     public void create(Subject subject) {
         EntityManager em = null;
         try {
@@ -45,6 +57,12 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param subject
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(Subject subject) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -68,6 +86,11 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -89,10 +112,20 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Subject> findSubjectEntities() {
         return findSubjectEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<Subject> findSubjectEntities(int maxResults, int firstResult) {
         return findSubjectEntities(false, maxResults, firstResult);
     }
@@ -113,6 +146,11 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Subject findSubject(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -122,6 +160,10 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSubjectCount() {
         EntityManager em = getEntityManager();
         try {

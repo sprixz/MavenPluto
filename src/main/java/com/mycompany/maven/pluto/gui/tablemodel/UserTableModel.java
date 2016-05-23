@@ -21,17 +21,31 @@ import com.mycompany.maven.pluto.logic.entities.Subject;
  */
 public class UserTableModel extends AbstractTableModel {
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getRowCount() {
         return DataSource.getInstance().getUserController().getPlutoUserCount();
 
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getColumnCount() {
         return PlutoUser.fields.length;
     }
 
+    /**
+     *
+     * @param rowIndex
+     * @param columnIndex
+     * @return
+     */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         PlutoUser users = DataSource.getInstance().getUserController().findPlutoUserEntities().get(rowIndex);
@@ -52,16 +66,32 @@ public class UserTableModel extends AbstractTableModel {
         }
     }
 
+    /**
+     *
+     * @param column
+     * @return
+     */
     @Override
     public String getColumnName(int column) {
         return PlutoUser.fields[column];
     }
 
+    /**
+     *
+     * @param rowIndex
+     * @param columnIndex
+     * @return
+     */
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return columnIndex == 2;
     }
 
+    /**
+     *
+     * @param columnIndex
+     * @return
+     */
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
@@ -77,6 +107,10 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public int amountofstudent() {
         int db = 0;
         for (int i = 0; i < getRowCount(); i++) {
@@ -89,6 +123,10 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public Object[] currentstudent() {
 
         int arraysize = amountofstudent();
@@ -108,6 +146,10 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public int amountofteacher() {
         int db = 0;
         for (int i = 0; i < getRowCount(); i++) {
@@ -120,6 +162,10 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] currentteahcer() {
 
         int arraysize = amountofteacher();
@@ -139,6 +185,10 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param user
+     */
     public void turnOnlie(PlutoUser user) {
         PlutoUser newuser = new PlutoUser();
         newuser = user;
@@ -156,6 +206,10 @@ public class UserTableModel extends AbstractTableModel {
         }
     }
 
+    /**
+     *
+     * @param user
+     */
     public void turnOffline(PlutoUser user) {
         PlutoUser newuser = new PlutoUser();
         newuser = user;
@@ -173,6 +227,10 @@ public class UserTableModel extends AbstractTableModel {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<PlutoUser> whoIsOnline() {
         ArrayList<PlutoUser> online = new ArrayList<>();
         for (int i = 0; i < getRowCount(); i++) {
@@ -186,6 +244,11 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param user
+     * @param subject
+     */
     public void addSubjectToMyList(String user, Subject subject) {
         PlutoUser thisuser = getThisUser(user);
       
@@ -225,6 +288,12 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param name
+     * @param list
+     * @return
+     */
     public boolean youAlreadyHaveThisSubject(String name, List<Integer> list) {
         
         PlutoUser thisuser = getThisUser(name);
@@ -247,6 +316,11 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     public PlutoUser getThisUser(String username) {
         PlutoUser thisuser = new PlutoUser();
 
@@ -259,6 +333,11 @@ public class UserTableModel extends AbstractTableModel {
         return thisuser;
     }
 
+    /**
+     *
+     * @param mysubject
+     * @return
+     */
     public List<Subject> getThisSubject(List<Integer> mysubject) {
         List<Subject> iwts = new ArrayList<>();
 
@@ -274,6 +353,11 @@ public class UserTableModel extends AbstractTableModel {
 
     }
 
+    /**
+     *
+     * @param user
+     * @param id
+     */
     public void updateHisList(PlutoUser user, int id) {
         List<Subject> alreadyhavealist = user.getSubjects();
         Subject deletethis = new Subject();
@@ -293,6 +377,11 @@ public class UserTableModel extends AbstractTableModel {
 
     }
     
+    /**
+     *
+     * @param subid
+     * @return
+     */
     public List<PlutoUser> theyHaveThisSubject(int subid){
       List<PlutoUser> students = new ArrayList<>();
       
@@ -311,7 +400,12 @@ public class UserTableModel extends AbstractTableModel {
         return students;
     }
     
-    
+    /**
+     *
+     * @param selectedsubject
+     * @param studentname
+     * @return
+     */
     public boolean requirementCheck(Subject selectedsubject, String studentname){
         PlutoUser thisuser = getThisUser(studentname);
         if(selectedsubject.getRequirement()==null){
@@ -334,6 +428,11 @@ public class UserTableModel extends AbstractTableModel {
         return false;
     }
     
+    /**
+     *
+     * @param mysub
+     * @return
+     */
     public String[] getMySubjectArray(List<Subject> mysub){
         String[] mys = new String[mysub.size()];
         
@@ -344,6 +443,12 @@ public class UserTableModel extends AbstractTableModel {
         return mys;
     }
     
+    /**
+     *
+     * @param selectedsub
+     * @param student
+     * @return
+     */
     public Subject getThisSubjectFromMyList(String selectedsub, PlutoUser student){
         Subject thissubject = new Subject();
         for(int i=0;i<student.getSubjects().size();i++){
@@ -355,7 +460,11 @@ public class UserTableModel extends AbstractTableModel {
         return thissubject;
     }
     
-    
+    /**
+     *
+     * @param user
+     * @param id
+     */
     public void addThisIdToMyList(PlutoUser user, int id){
         List<Integer> ids = user.getFulfilledsubids();
         
@@ -385,6 +494,12 @@ public class UserTableModel extends AbstractTableModel {
         
     }
     
+    /**
+     *
+     * @param id
+     * @param user
+     * @return
+     */
     public boolean alreadyDoneTHisSubject(int id,PlutoUser user){
         int i=0;
         if(user.getFulfilledsubids()== null){

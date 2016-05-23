@@ -22,15 +22,27 @@ import javax.persistence.criteria.Root;
  */
 public class PlutoUserJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public PlutoUserJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param plutoUser
+     */
     public void create(PlutoUser plutoUser) {
         EntityManager em = null;
         try {
@@ -45,6 +57,12 @@ public class PlutoUserJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param plutoUser
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(PlutoUser plutoUser) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -68,6 +86,11 @@ public class PlutoUserJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -89,10 +112,20 @@ public class PlutoUserJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<PlutoUser> findPlutoUserEntities() {
         return findPlutoUserEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<PlutoUser> findPlutoUserEntities(int maxResults, int firstResult) {
         return findPlutoUserEntities(false, maxResults, firstResult);
     }
@@ -113,6 +146,11 @@ public class PlutoUserJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public PlutoUser findPlutoUser(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -122,6 +160,10 @@ public class PlutoUserJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPlutoUserCount() {
         EntityManager em = getEntityManager();
         try {
