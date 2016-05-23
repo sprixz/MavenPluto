@@ -8,6 +8,7 @@ package com.mycompany.maven.pluto;
 import com.mycompany.maven.pluto.gui.PlutoFrame;
 import com.mycompany.maven.pluto.logic.DataSource;
 import java.awt.EventQueue;
+import java.io.File;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Main {
      public static void main(String[] args) {
         DataSource.getInstance().getEntityManagerFactory().createEntityManager().close();
         PlutoFrame plutoFrame = new PlutoFrame();
+        
         /*EventQueue.invokeLater(new Runnable() {
 
             @Override

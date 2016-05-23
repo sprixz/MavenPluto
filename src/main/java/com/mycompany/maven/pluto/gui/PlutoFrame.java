@@ -56,12 +56,12 @@ public class PlutoFrame extends JFrame {
     JLabel mainlabel = new JLabel("Belépés");
     JLabel userlabel = new JLabel("Felhasználó név:");
     JLabel passwlabel = new JLabel("Jelszó:");
-    //ImageIcon plutojpg = new ImageIcon(getClass().getResource("pluto.jpg"));
+    //ImageIcon plutojpg = createImageIcon("pluto.jpg"));
     //JLabel plutopic = new JLabel(plutojpg);
     JCheckBox isteacher = new JCheckBox("Tanár");
     JButton login = new JButton("Belépés");
     JButton registration = new JButton("Regisztráció");
-    ImageIcon realpluto = createImageIcon("plutoreal.jpg","");
+    ImageIcon realpluto = createImageIcon("images/plutoreal.jpg","");
     JLabel realplutopic = new JLabel(realpluto);
 
     //REGISZTRÁCIÓS KOMPONENSEK
@@ -93,7 +93,7 @@ public class PlutoFrame extends JFrame {
     JButton studentexit = new JButton("Kilépés");
     JPanel sudentpanel = new JPanel();
 
-    ImageIcon studentjpg = new ImageIcon(getClass().getResource("student.jpg"));
+    ImageIcon studentjpg = createImageIcon("images/student.jpg","");
     JLabel studentpic = new JLabel(studentjpg);
 
     //TANÁR FRAME KOMPONENSEI
@@ -103,7 +103,7 @@ public class PlutoFrame extends JFrame {
     JButton exitbutton = new JButton("Kilépés");
     JPanel teacherpanel = new JPanel();
 
-    ImageIcon img2 = new ImageIcon(getClass().getResource("teacherdesk.jpg"));
+    ImageIcon img2 = createImageIcon("images/teacherdesk.jpg","");
     JLabel teacherpic = new JLabel(img2);
     JButton removesubject = new JButton("Tárgy Törlés");
 
@@ -126,7 +126,7 @@ public class PlutoFrame extends JFrame {
     JCheckBox reqbox;
     JComboBox<String> comboDay;
     JComboBox<String> comboHour;
-    ImageIcon board2 = new ImageIcon(getClass().getResource("teacherdesk.jpg"));
+    ImageIcon board2 = createImageIcon("images/teacherdesk.jpg","");
     JLabel classboard2 = new JLabel(board2);
     JComboBox<String> comboSemester;
     String[] comboTeacherarray;
@@ -152,7 +152,7 @@ public class PlutoFrame extends JFrame {
     JComboBox<String> comboId;
     JFrame subdetailsframe;
     JPanel subdet = new JPanel();
-    ImageIcon board = createImageIcon("teacherdesk.jpg","");
+    ImageIcon board = createImageIcon("images/teacherdesk.jpg","");
     JLabel classboard = new JLabel(board);
 
     JLabel reqsublabel = new JLabel("Előfeltétel:");
