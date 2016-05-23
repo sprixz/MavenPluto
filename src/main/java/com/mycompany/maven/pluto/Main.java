@@ -17,16 +17,16 @@ import java.io.File;
 public class Main {
      public static void main(String[] args) {
         DataSource.getInstance().getEntityManagerFactory().createEntityManager().close();
-        PlutoFrame plutoFrame = new PlutoFrame();
+        //PlutoFrame plutoFrame = new PlutoFrame();
         
-        /*EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
 
             @Override
             public void run() {
                 
                 PlutoFrame plutoFrame = new PlutoFrame();
             }
-        });*/
+        });
      }
           
 }

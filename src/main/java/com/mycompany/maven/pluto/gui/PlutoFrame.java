@@ -325,9 +325,14 @@ public class PlutoFrame extends JFrame {
 
                     JOptionPane.showMessageDialog(studentframe, "Nincs több tantárgy!", "Hiba történt!", JOptionPane.ERROR_MESSAGE);
                 } else {
-
+                    
+                    try{
                     String ids = (String) comboId2.getSelectedItem();
-                    int realid = Integer.parseInt(ids);
+                    int realid = 0;
+                    if(ids != null){
+                          realid = Integer.parseInt(ids);
+                    }
+                   
 
                     for (int i = 0; i < subModel.getRowCount(); i++) {
                         Subject sub = DataSource.getInstance().getSubjectController().findSubjectEntities().get(i);
@@ -338,7 +343,7 @@ public class PlutoFrame extends JFrame {
 
                             if (userModel.youAlreadyHaveThisSubject(currentusername, addsubids)) {
                                 JOptionPane.showMessageDialog(studentframe, "Ezt a tárgyat már felvetted!", "Hiba történt!", JOptionPane.ERROR_MESSAGE);
-                                comboId2.removeItem(comboId2.getSelectedItem());
+                                //comboId2.removeItem(comboId2.getSelectedItem());
                             } else {
 
                                 Subject selectedsub = subModel.getmySubject(realid);
@@ -357,6 +362,11 @@ public class PlutoFrame extends JFrame {
                         }
 
                     }
+                    }
+                    catch(Exception asd){
+                        //System.out.println("Error");
+                    }
+                 
 
                 }
 
