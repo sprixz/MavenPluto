@@ -16,14 +16,15 @@ import java.awt.EventQueue;
 public class Main {
      public static void main(String[] args) {
         DataSource.getInstance().getEntityManagerFactory().createEntityManager().close();
-        EventQueue.invokeLater(new Runnable() {
+        PlutoFrame plutoFrame = new PlutoFrame();
+        /*EventQueue.invokeLater(new Runnable() {
 
             @Override
             public void run() {
                 
                 PlutoFrame plutoFrame = new PlutoFrame();
             }
-        });
+        });*/
      }
           
 }

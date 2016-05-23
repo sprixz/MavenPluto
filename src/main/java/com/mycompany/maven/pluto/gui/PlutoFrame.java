@@ -61,7 +61,7 @@ public class PlutoFrame extends JFrame {
     JCheckBox isteacher = new JCheckBox("Tanár");
     JButton login = new JButton("Belépés");
     JButton registration = new JButton("Regisztráció");
-    ImageIcon realpluto = new ImageIcon(getClass().getResource("plutoreal.jpg"));
+    ImageIcon realpluto = createImageIcon("plutoreal.jpg","");
     JLabel realplutopic = new JLabel(realpluto);
 
     //REGISZTRÁCIÓS KOMPONENSEK
@@ -152,7 +152,7 @@ public class PlutoFrame extends JFrame {
     JComboBox<String> comboId;
     JFrame subdetailsframe;
     JPanel subdet = new JPanel();
-    ImageIcon board = new ImageIcon(getClass().getResource("teacherdesk.jpg"));
+    ImageIcon board = createImageIcon("teacherdesk.jpg","");
     JLabel classboard = new JLabel(board);
 
     JLabel reqsublabel = new JLabel("Előfeltétel:");
@@ -1369,5 +1369,17 @@ public class PlutoFrame extends JFrame {
         }
         return reqsubb;
     }
+    
+    
+    protected ImageIcon createImageIcon(String path,
+                                           String description) {
+    java.net.URL imgURL = getClass().getResource(path);
+    if (imgURL != null) {
+        return new ImageIcon(imgURL, description);
+    } else {
+        System.err.println("Couldn't find file: " + path);
+        return null;
+    }
+}
 
 }
