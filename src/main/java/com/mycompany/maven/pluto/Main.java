@@ -5,13 +5,25 @@
  */
 package com.mycompany.maven.pluto;
 
+import com.mycompany.maven.pluto.gui.PlutoFrame;
+import com.mycompany.maven.pluto.logic.DataSource;
+import java.awt.EventQueue;
+
 /**
  *
  * @author Varga Bence
  */
 public class Main {
      public static void main(String[] args) {
-         System.out.println("com.mycompany.maven.pluto.Main.main()");
+        DataSource.getInstance().getEntityManagerFactory().createEntityManager().close();
+        EventQueue.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                
+                PlutoFrame plutoFrame = new PlutoFrame();
+            }
+        });
      }
           
 }
