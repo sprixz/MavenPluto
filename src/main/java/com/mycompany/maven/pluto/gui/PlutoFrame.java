@@ -62,8 +62,8 @@ public class PlutoFrame extends JFrame {
     JCheckBox isteacher = new JCheckBox("Tanár");
     JButton login = new JButton("Belépés");
     JButton registration = new JButton("Regisztráció");
-    ImageIcon realpluto = createImageIcon("images/plutoreal.jpg","");
-    JLabel realplutopic = new JLabel(realpluto);
+    //ImageIcon realpluto = createImageIcon("images/plutoreal.jpg","");
+    //JLabel realplutopic = new JLabel(realpluto);
 
     //REGISZTRÁCIÓS KOMPONENSEK
     JFrame regframe = new JFrame();
@@ -94,8 +94,8 @@ public class PlutoFrame extends JFrame {
     JButton studentexit = new JButton("Kilépés");
     JPanel sudentpanel = new JPanel();
 
-    ImageIcon studentjpg = createImageIcon("images/student.jpg","");
-    JLabel studentpic = new JLabel(studentjpg);
+    //ImageIcon studentjpg = createImageIcon("images/student.jpg","");
+    //JLabel studentpic = new JLabel(studentjpg);
 
     //TANÁR FRAME KOMPONENSEI
     JFrame teacherframe = new JFrame();
@@ -104,8 +104,8 @@ public class PlutoFrame extends JFrame {
     JButton exitbutton = new JButton("Kilépés");
     JPanel teacherpanel = new JPanel();
 
-    ImageIcon img2 = createImageIcon("images/teacherdesk.jpg","");
-    JLabel teacherpic = new JLabel(img2);
+    //ImageIcon img2 = createImageIcon("images/teacherdesk.jpg","");
+   // JLabel teacherpic = new JLabel(img2);
     JButton removesubject = new JButton("Tárgy Törlés");
 
     // TÁRGY HOZZÁADÁSA KOMPONENSEI
@@ -127,8 +127,8 @@ public class PlutoFrame extends JFrame {
     JCheckBox reqbox;
     JComboBox<String> comboDay;
     JComboBox<String> comboHour;
-    ImageIcon board2 = createImageIcon("images/teacherdesk.jpg","");
-    JLabel classboard2 = new JLabel(board2);
+    //ImageIcon board2 = createImageIcon("images/teacherdesk.jpg","");
+    //JLabel classboard2 = new JLabel(board2);
     JComboBox<String> comboSemester;
     String[] comboTeacherarray;
     JComboBox<String> comboTeacher;
@@ -153,8 +153,8 @@ public class PlutoFrame extends JFrame {
     JComboBox<String> comboId;
     JFrame subdetailsframe;
     JPanel subdet = new JPanel();
-    ImageIcon board = createImageIcon("images/teacherdesk.jpg","");
-    JLabel classboard = new JLabel(board);
+    //ImageIcon board = createImageIcon("images/teacherdesk.jpg","");
+    //JLabel classboard = new JLabel(board);
 
     JLabel reqsublabel = new JLabel("Előfeltétel:");
     String[] comboRequiredarray;
@@ -209,9 +209,9 @@ public class PlutoFrame extends JFrame {
         studentpanel.add(removesub);
         studentpanel.add(mysubject);
         studentpanel.add(myfulfilledbutton);
-        studentpanel.add(studentpic);
+        //studentpanel.add(studentpic);
 
-        l3.putConstraint(SpringLayout.NORTH, studentpic, 0, SpringLayout.NORTH, studentpanel);
+        //l3.putConstraint(SpringLayout.NORTH, studentpic, 0, SpringLayout.NORTH, studentpanel);
         l3.putConstraint(SpringLayout.NORTH, scedule, 95, SpringLayout.NORTH, studentpanel);
         l3.putConstraint(SpringLayout.WEST, scedule, 5, SpringLayout.WEST, studentpanel);
         l3.putConstraint(SpringLayout.NORTH, studentexit, 5, SpringLayout.NORTH, studentpanel);
@@ -272,9 +272,9 @@ public class PlutoFrame extends JFrame {
         subdet2.add(currentsubtime2);
         subdet2.add(currentsubteacher2);
         subdet2.add(addsubtomylist);
-        subdet2.add(classboard);
+        //subdet2.add(classboard);
 
-        s1.putConstraint(SpringLayout.NORTH, classboard, 0, SpringLayout.NORTH, subdet2);
+        //s1.putConstraint(SpringLayout.NORTH, classboard, 0, SpringLayout.NORTH, subdet2);
         s1.putConstraint(SpringLayout.WEST, subdetmain, 250, SpringLayout.WEST, subdet2);
         s1.putConstraint(SpringLayout.NORTH, subdetmain, 20, SpringLayout.NORTH, subdet2);
         s1.putConstraint(SpringLayout.WEST, subdetname, 30, SpringLayout.WEST, subdet2);
@@ -652,12 +652,12 @@ public class PlutoFrame extends JFrame {
         panel.add(isteacher);
         panel.add(login);
         panel.add(registration);
-        panel.add(realplutopic);
+        //panel.add(realplutopic);
         pluto.add(panel);
 
         // Komponenesek elhelyezkedésének beállítása
-        s2.putConstraint(SpringLayout.EAST, realplutopic, 0, SpringLayout.EAST, panel);
-        s2.putConstraint(SpringLayout.NORTH, realplutopic, 0, SpringLayout.NORTH, panel);
+        //s2.putConstraint(SpringLayout.EAST, realplutopic, 0, SpringLayout.EAST, panel);
+        //s2.putConstraint(SpringLayout.NORTH, realplutopic, 0, SpringLayout.NORTH, panel);
         s2.putConstraint(SpringLayout.HORIZONTAL_CENTER, mainlabel, 5, SpringLayout.HORIZONTAL_CENTER, panel);
         s2.putConstraint(SpringLayout.WEST, userlabel, 10, SpringLayout.WEST, panel);
         s2.putConstraint(SpringLayout.NORTH, userlabel, 36, SpringLayout.NORTH, panel);
@@ -714,7 +714,7 @@ public class PlutoFrame extends JFrame {
                 // regpanel.add(pluto2pic);
                 regpanel.add(regbutton);
                 regpanel.add(backbutton);
-                regpanel.add(realplutopic);
+                //regpanel.add(realplutopic);
 
                 s2.putConstraint(SpringLayout.HORIZONTAL_CENTER, reglabel, 5, SpringLayout.HORIZONTAL_CENTER, regpanel);
                 s2.putConstraint(SpringLayout.WEST, regnamelabel, 10, SpringLayout.WEST, regpanel);
@@ -902,9 +902,9 @@ public class PlutoFrame extends JFrame {
         teacherframe.add(teachertab);
         teacherpanel.add(exitbutton);
         teacherpanel.add(activstudentsbutton);
-        teacherpanel.add(teacherpic);
+        //teacherpanel.add(teacherpic);
 
-        s3.putConstraint(SpringLayout.WEST, teacherpic, 0, SpringLayout.WEST, teacherpanel);
+        //s3.putConstraint(SpringLayout.WEST, teacherpic, 0, SpringLayout.WEST, teacherpanel);
         s3.putConstraint(SpringLayout.WEST, exitbutton, 425, SpringLayout.WEST, teacherpanel);
         s3.putConstraint(SpringLayout.NORTH, exitbutton, 5, SpringLayout.NORTH, teacherpanel);
         s3.putConstraint(SpringLayout.WEST, activstudentsbutton, 5, SpringLayout.WEST, teacherpanel);
@@ -956,9 +956,9 @@ public class PlutoFrame extends JFrame {
         addpanel.add(comboTeacher);
         addpanel.add(addsubject);
 
-        addpanel.add(classboard2);
+        //addpanel.add(classboard2);
 
-        s4.putConstraint(SpringLayout.WEST, classboard2, 0, SpringLayout.WEST, addpanel);
+        //s4.putConstraint(SpringLayout.WEST, classboard2, 0, SpringLayout.WEST, addpanel);
         s4.putConstraint(SpringLayout.WEST, addsubnamelabel, 30, SpringLayout.WEST, addpanel);
         s4.putConstraint(SpringLayout.NORTH, addsubnamelabel, 25, SpringLayout.NORTH, addpanel);
         s4.putConstraint(SpringLayout.WEST, addsubname, 30, SpringLayout.WEST, addpanel);
@@ -1100,9 +1100,9 @@ public class PlutoFrame extends JFrame {
         subdet.add(currentsubtime);
         subdet.add(currentsubteacher);
         subdet.add(delete);
-        subdet.add(classboard);
+        //subdet.add(classboard);
 
-        s5.putConstraint(SpringLayout.NORTH, classboard, 0, SpringLayout.NORTH, subdet);
+       // s5.putConstraint(SpringLayout.NORTH, classboard, 0, SpringLayout.NORTH, subdet);
         s5.putConstraint(SpringLayout.WEST, subdetmain, 290, SpringLayout.WEST, subdet);
         s5.putConstraint(SpringLayout.NORTH, subdetmain, 30, SpringLayout.NORTH, subdet);
         s5.putConstraint(SpringLayout.WEST, subdetname, 30, SpringLayout.WEST, subdet);
