@@ -50,7 +50,7 @@ public class DataSource {
      
      
     public final EntityManagerFactory getEntityManagerFactory() {
-        emf = Persistence.createEntityManagerFactory("PlutoPU");
+        emf = Persistence.createEntityManagerFactory("maven-pluto");
         return emf;
     }
 
