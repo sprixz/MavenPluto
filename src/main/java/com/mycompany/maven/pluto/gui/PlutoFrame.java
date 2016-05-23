@@ -42,7 +42,7 @@ import com.mycompany.maven.pluto.logic.entities.Subject;
 import java.net.URL;
 
 /**
- *
+ * Proba szöveg
  * @author Varga Balázs
  */
 public class PlutoFrame extends JFrame {
