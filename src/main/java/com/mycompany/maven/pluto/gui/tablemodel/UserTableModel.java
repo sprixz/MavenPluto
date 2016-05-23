@@ -7,7 +7,7 @@ package com.mycompany.maven.pluto.gui.tablemodel;
 
 /**
  *
- * @author Rocka
+ * @author Varga Balázs
  */
 public class UserTableModel {
     
