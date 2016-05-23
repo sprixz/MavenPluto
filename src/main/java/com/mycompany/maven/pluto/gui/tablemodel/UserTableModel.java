@@ -11,10 +11,9 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
-import pluto.logic.DataSource;
-import pluto.logic.entities.PlutoUser;
-import pluto.logic.entities.Subject;
-import pluto.gui.tableModel.SubjectTableModel;
+import com.mycompany.maven.pluto.logic.DataSource;
+import com.mycompany.maven.pluto.logic.entities.PlutoUser;
+import com.mycompany.maven.pluto.logic.entities.Subject;
 
 /**
  *
@@ -189,11 +188,14 @@ public class UserTableModel extends AbstractTableModel {
 
     public void addSubjectToMyList(String user, Subject subject) {
         PlutoUser thisuser = getThisUser(user);
+      
         
        
         if (thisuser.getSubjects().isEmpty()) {
             List<Subject> mynewsubject = new ArrayList<>();
+           
             mynewsubject.add(subject);
+            
             
             thisuser.setSubjects(mynewsubject);
             try {
@@ -224,22 +226,24 @@ public class UserTableModel extends AbstractTableModel {
     }
 
     public boolean youAlreadyHaveThisSubject(String name, List<Integer> list) {
-        boolean ok = false;
+        
         PlutoUser thisuser = getThisUser(name);
         List<Subject> thislist = getThisSubject(list);
         if (thislist.isEmpty()) {
-            ok = false;
+            return false;
         } else {
-            for (int i = 0; i < thisuser.getSubjects().size(); i++) {
-                if (thisuser.getSubjects().get(i).equals(thislist.get(i))) {
-                    ok = true;
-                } else {
-                    ok = false;
+            int i=0;
+            while(i<thisuser.getSubjects().size()){
+                if(thisuser.getSubjects().get(i).equals(thislist.get(i))){
+                    return true;
                 }
+                i++;
             }
+            
+           
         }
 
-        return ok;
+        return false;
 
     }
 
@@ -279,7 +283,6 @@ public class UserTableModel extends AbstractTableModel {
             }
         }
         alreadyhavealist.remove(deletethis);
-        //System.out.println("ez a tárgy akar kitörlődni"+ deletethis.getSubjectName());
         user.setSubjects(alreadyhavealist);
         try {
             DataSource.getInstance().getUserController().edit(user);
@@ -310,24 +313,25 @@ public class UserTableModel extends AbstractTableModel {
     
     
     public boolean requirementCheck(Subject selectedsubject, String studentname){
-        boolean ok = false;
-        
-        if(selectedsubject.getRequirement() == null){
-            ok=true;
-        }
-        else{
-            PlutoUser thisuser = getThisUser(studentname);
-            Subject thisreq = selectedsubject.getRequirement();
-            int i =0;
-            while(i<thisuser.getSubjects().size()){
-                if((thisuser.getSubjects().get(i).equals(thisreq)) && (thisuser.getSubjects().get(i).isFulfilled())){
-                    ok=true;
-                }
-                i++;
+        PlutoUser thisuser = getThisUser(studentname);
+        if(selectedsubject.getRequirement()==null){
+            return true;
+        }else if(thisuser.getFulfilledsubids() == null){
+            return false;
+        }else{
+            int i=0;
+            while(i<thisuser.getFulfilledsubids().size()){
+            if(Objects.equals(thisuser.getFulfilledsubids().get(i), selectedsubject.getRequirement().getId())){
+                return true;
             }
+            i++;
         }
+            
+        }
+        
+        
  
-        return ok;
+        return false;
     }
     
     public String[] getMySubjectArray(List<Subject> mysub){
@@ -350,6 +354,57 @@ public class UserTableModel extends AbstractTableModel {
         
         return thissubject;
     }
+    
+    
+    public void addThisIdToMyList(PlutoUser user, int id){
+        List<Integer> ids = user.getFulfilledsubids();
+        
+        if(ids==null){
+            List<Integer> newids = new ArrayList<>();
+            newids.add(id);
+            user.setFulfilledsubids(newids);
+            try {
+                DataSource.getInstance().getUserController().edit(user);
+                fireTableDataChanged();
+            } catch (Exception ex) {
+                Logger.getLogger(UserTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        else{
+            ids.add(id);
+            user.setFulfilledsubids(ids);
+            try {
+                DataSource.getInstance().getUserController().edit(user);
+            } catch (Exception ex) {
+                Logger.getLogger(UserTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        
+    }
+    
+    public boolean alreadyDoneTHisSubject(int id,PlutoUser user){
+        int i=0;
+        if(user.getFulfilledsubids()== null){
+            return false;
+        }
+        else{
+             while(i<user.getFulfilledsubids().size()){
+            if(user.getFulfilledsubids().get(i)==id){
+                return true;
+            }
+            i++;
+        }
+        }
+       
+        
+        return false;
+    }
+   
+    
+  
     
 
 }

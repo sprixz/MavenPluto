@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.maven.pluto.gui;
+package com.mycompany.maven.pluto.gui.tablemodel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
-import pluto.logic.DataSource;
-import pluto.logic.controllers.exceptions.NonexistentEntityException;
-import pluto.logic.entities.PlutoUser;
-import pluto.logic.entities.Subject;
+import com.mycompany.maven.pluto.logic.DataSource;
+import com.mycompany.maven.pluto.logic.entities.PlutoUser;
+import com.mycompany.maven.pluto.logic.entities.Subject;
+import com.mycompany.maven.pluto.controllers.exceptions.NonexistentEntityException;
 
 /**
  *
@@ -24,6 +25,7 @@ public class SubjectTableModel extends AbstractTableModel {
     @Override
     public int getRowCount() {
         return DataSource.getInstance().getSubjectController().getSubjectCount();
+        
     }
 
     @Override
@@ -40,15 +42,15 @@ public class SubjectTableModel extends AbstractTableModel {
             case 1:
                 return subjects.getRoom();
             case 2:
-                return subjects.getTime();
+                return subjects.getSubDay();
             case 3:
-                return subjects.getRegistered_sem();
+                return subjects.getSubHour();
             case 4:
-                return subjects.getRequirement();
+                return subjects.getRegistered_sem();
             case 5:
-                return subjects.getTeacherName();
+                return subjects.getRequirement();
             case 6:
-                return subjects.isFulfilled();
+                return subjects.getTeacherName();
             default:
                 return null;
         }
@@ -75,37 +77,19 @@ public class SubjectTableModel extends AbstractTableModel {
             case 2:
                 return String.class;
             case 3:
-                return Integer.class;
-            case 4:
-                return Subject.class;
-            case 5:
                 return String.class;
+            case 4:
+                return Integer.class;
+            case 5:
+                return Subject.class;
             default:
-                return Boolean.class;
+                return String.class;
+            
         }
 
     }
 
-    @Override
-    public void setValueAt(Object inValue, int inRow, int inCol) {
-
-        Subject currsub = DataSource.getInstance().getSubjectController().findSubjectEntities().get(inRow);
-        if (currsub.isFulfilled()) {
-            currsub.setFulfilled(false);
-
-        } else {
-            currsub.setFulfilled(true);
-        }
-
-        try {
-            DataSource.getInstance().getSubjectController().edit(currsub);
-        } catch (Exception ex) {
-            Logger.getLogger(SubjectTableModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        fireTableCellUpdated(inRow, inCol);
-
-    }
+   
 
     public Object[] currentSubjects() {
 
@@ -124,6 +108,7 @@ public class SubjectTableModel extends AbstractTableModel {
     }
 
     public String[] currentSubjectsId() {
+        fireTableDataChanged();
         int arraysize = getRowCount();
         String[] subarray = new String[arraysize];
 
@@ -204,7 +189,47 @@ public class SubjectTableModel extends AbstractTableModel {
         return columnName;
     }
     
-    
+    public boolean isThisSubejtARequirent(Subject sub){
+        
+        
+        int i=0;
+        while(i<getRowCount()){
+            Subject currsub = DataSource.getInstance().getSubjectController().findSubjectEntities().get(i);
+            if(currsub.getRequirement() != null && currsub.getRequirement().equals(sub)){
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }
    
-
+    // a tárgy melyik tárgy(tárgyaknak) az előfeltétele
+    public String whatIsThisSubject(Subject sub){
+        String result="";
+        
+        for(int i=0;i<getRowCount();i++){
+            Subject currsub = DataSource.getInstance().getSubjectController().findSubjectEntities().get(i);
+            if(currsub.getRequirement()!=null && currsub.getRequirement().equals(sub)){
+                result+=currsub.getSubjectName()+", ";
+            }
+        }
+        
+        return result.substring(0, result.length()-2);
+    } 
+    
+    
+    public List<Subject> getThisUserFulfilledSubject(PlutoUser user){
+        List<Subject> sub = new ArrayList<>();
+        
+        for(int i=0;i<user.getFulfilledsubids().size();i++){
+            Subject subj = DataSource.getInstance().getSubjectController().findSubjectEntities().get(i);
+            if(Objects.equals(subj.getId(), user.getFulfilledsubids().get(i))){
+                sub.add(subj);
+            }
+            
+        }
+        
+        return sub;
+    }
+    
 }
