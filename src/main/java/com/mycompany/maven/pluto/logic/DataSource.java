@@ -8,8 +8,8 @@ package com.mycompany.maven.pluto.logic;
 import javax.persistence.Cache;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-//import pluto.logic.controllers.PlutoUserJpaController;
-//import pluto.logic.controllers.SubjectJpaController;
+import com.mycompany.maven.pluto.controllers.PlutoUserJpaController;
+import com.mycompany.maven.pluto.controllers.SubjectJpaController;
 
 /**
  *
@@ -17,12 +17,12 @@ import javax.persistence.Persistence;
  */
 public class DataSource {
     
-    /*private static DataSource dataSource = null;
+    private static DataSource dataSource = null;
     private EntityManagerFactory emf;
     private final Cache cache = getEntityManagerFactory().getCache();
     
-    //private PlutoUserJpaController userController;
-    //private SubjectJpaController subjectController;
+    private PlutoUserJpaController userController;
+    private SubjectJpaController subjectController;
     
     
      public static DataSource getInstance() {
@@ -34,22 +34,22 @@ public class DataSource {
     }
      
     private DataSource(){
-       // userController = new PlutoUserJpaController(getEntityManagerFactory());
-        //subjectController = new SubjectJpaController(getEntityManagerFactory());   
+        userController = new PlutoUserJpaController(getEntityManagerFactory());
+        subjectController = new SubjectJpaController(getEntityManagerFactory());   
     }
 
-    /*public PlutoUserJpaController getUserController() {
+    public PlutoUserJpaController getUserController() {
         return userController;
     }
 
     public SubjectJpaController getSubjectController() {
         return subjectController;
-    }*/
+    }
     
     
      
      
-    /*public final EntityManagerFactory getEntityManagerFactory() {
+    public final EntityManagerFactory getEntityManagerFactory() {
         emf = Persistence.createEntityManagerFactory("PlutoPU");
         return emf;
     }
@@ -57,7 +57,7 @@ public class DataSource {
     public EntityManagerFactory getEmf() {
         return emf;
     }
-*/
+
     
    
     
