@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mycompany.maven.pluto.entities.PlutoUser</class>
     <class>com.mycompany.maven.pluto.entities.Subject</class>
+    <class>com.mycompany.maven.pluto.logic.entities.PlutoUser</class>
+    <class>com.mycompany.maven.pluto.logic.entities.Subject</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Pluto"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

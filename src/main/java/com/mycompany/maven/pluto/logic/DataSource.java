@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.maven.pluto;
+package com.mycompany.maven.pluto.logic;
 
 /**
  *
  * @author Varga Bence
  */
-public class Main {
-     public static void main(String[] args) {
-         System.out.println("com.mycompany.maven.pluto.Main.main()");
-     }
-          
+public class DataSource {
+    
 }
