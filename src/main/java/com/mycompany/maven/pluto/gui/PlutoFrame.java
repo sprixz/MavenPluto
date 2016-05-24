@@ -294,11 +294,11 @@ public class PlutoFrame extends JFrame {
         s1.putConstraint(SpringLayout.NORTH, subdetroom, 75, SpringLayout.NORTH, subdet2);
         s1.putConstraint(SpringLayout.WEST, subdettime, 30, SpringLayout.WEST, subdet2);
         s1.putConstraint(SpringLayout.NORTH, subdettime, 115, SpringLayout.NORTH, subdet2);
-        s1.putConstraint(SpringLayout.WEST, comboId2, 380, SpringLayout.WEST, subdet2);
+        s1.putConstraint(SpringLayout.WEST, comboId2, 420, SpringLayout.WEST, subdet2);
         s1.putConstraint(SpringLayout.NORTH, comboId2, 20, SpringLayout.NORTH, subdet2);
         s1.putConstraint(SpringLayout.WEST, subdetteacher, 30, SpringLayout.WEST, subdet2);
         s1.putConstraint(SpringLayout.NORTH, subdetteacher, 95, SpringLayout.NORTH, subdet2);
-        s1.putConstraint(SpringLayout.WEST, currentsubname2, 125, SpringLayout.WEST, subdet2);
+        s1.putConstraint(SpringLayout.WEST, currentsubname2, 150, SpringLayout.WEST, subdet2);
         s1.putConstraint(SpringLayout.NORTH, currentsubname2, 55, SpringLayout.NORTH, subdet2);
         s1.putConstraint(SpringLayout.WEST, currentsubroom2, 125, SpringLayout.WEST, subdet2);
         s1.putConstraint(SpringLayout.NORTH, currentsubroom2, 75, SpringLayout.NORTH, subdet2);
@@ -1155,7 +1155,7 @@ public class PlutoFrame extends JFrame {
         s5.putConstraint(SpringLayout.NORTH, comboId, 30, SpringLayout.NORTH, subdet);
         s5.putConstraint(SpringLayout.WEST, subdetteacher, 30, SpringLayout.WEST, subdet);
         s5.putConstraint(SpringLayout.NORTH, subdetteacher, 115, SpringLayout.NORTH, subdet);
-        s5.putConstraint(SpringLayout.WEST, currentsubname, 125, SpringLayout.WEST, subdet);
+        s5.putConstraint(SpringLayout.WEST, currentsubname, 140, SpringLayout.WEST, subdet);
         s5.putConstraint(SpringLayout.NORTH, currentsubname, 75, SpringLayout.NORTH, subdet);
         s5.putConstraint(SpringLayout.WEST, currentsubroom, 125, SpringLayout.WEST, subdet);
         s5.putConstraint(SpringLayout.NORTH, currentsubroom, 95, SpringLayout.NORTH, subdet);
