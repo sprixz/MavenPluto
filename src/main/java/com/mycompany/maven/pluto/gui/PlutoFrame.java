@@ -63,7 +63,7 @@ public class PlutoFrame extends JFrame {
     JButton login = new JButton("Belépés");
     JButton registration = new JButton("Regisztráció");
     //ImageIcon realpluto = createImageIcon("images/plutoreal.jpg","");
-    //JLabel realplutopic = new JLabel(realpluto);
+    //JLabel realplutopic = new JLabel(/*realpluto*/);
 
     //REGISZTRÁCIÓS KOMPONENSEK
     JFrame regframe = new JFrame();
@@ -133,6 +133,7 @@ public class PlutoFrame extends JFrame {
     String[] comboTeacherarray;
     JComboBox<String> comboTeacher;
     JPanel addpanel = new JPanel();
+    
     JFrame addsubframe;
 
     Subject reqsub = new Subject();
@@ -209,6 +210,8 @@ public class PlutoFrame extends JFrame {
         stpane.addTab("Diák", studentpanel);
         stpane.addTab("Tárgyfelvétel", subdet2);
 
+        studentpanel.setBackground(Color.DARK_GRAY);
+        
         studentframe.add(stpane);
         studentpanel.add(scedule);
         studentpanel.add(studentexit);
@@ -266,6 +269,8 @@ public class PlutoFrame extends JFrame {
         subdetmain.setForeground(Color.white);
         addsubtomylist = new JButton("Felvesz");
 
+        subdet2.setBackground(Color.DARK_GRAY);
+        
         subdet2.setLayout(s1);
         subdet2.add(subdetname);
         subdet2.add(subdetroom);
@@ -657,7 +662,10 @@ public class PlutoFrame extends JFrame {
         isteacher.setForeground(Color.WHITE);
         //userlabel.setFont(new Font("Cooper Black", Font.PLAIN, 12));
         //passwlabel.setFont(new Font("Cooper Black", Font.PLAIN, 12));
-
+        
+        //Háttérszín
+        panel.setBackground(Color.DARK_GRAY);
+        
         //Komponensek hozzáadása
         panel.add(mainlabel);
         panel.add(userlabel);
@@ -717,6 +725,8 @@ public class PlutoFrame extends JFrame {
                 registeacher.setForeground(Color.WHITE);
                 studentlabel.setForeground(Color.WHITE);
 
+                regpanel.setBackground(Color.DARK_GRAY);
+                
                 regframe.add(regpanel);
                 regpanel.add(reglabel);
                 regpanel.add(regnamelabel);
@@ -900,14 +910,18 @@ public class PlutoFrame extends JFrame {
     /**
      *
      */
-    public void teacherGui() {
+    public void teacherGui() {        
+        addpanel.setBackground(Color.DARK_GRAY);
+        
         teacherframe.setVisible(true);
         teacherframe.setTitle("Plutó hallgatói tanulmányirendszer - TANÁR");
         teacherframe.setDefaultCloseOperation(EXIT_ON_CLOSE);
         teacherframe.setSize(520, 410);
         teacherframe.setLocationRelativeTo(null);
         teacherframe.setResizable(false);
-        teacherpanel.setBackground(Color.WHITE);
+        
+        teacherpanel.setBackground(Color.DARK_GRAY);
+        
         SpringLayout s3 = new SpringLayout();
         teacherpanel.setLayout(s3);
         currentids = subModel.currentSubjectsId();
@@ -918,6 +932,7 @@ public class PlutoFrame extends JFrame {
         teachertab.addTab("Tárgy hozzáadása", addpanel);
         teachertab.addTab("Tárgy törlése", subdet);
 
+        
         teacherframe.add(teachertab);
         teacherpanel.add(exitbutton);
         teacherpanel.add(activstudentsbutton);
@@ -936,7 +951,7 @@ public class PlutoFrame extends JFrame {
         reqbox = new JCheckBox();
         reqbox.setOpaque(false);
         reqbox.setSelected(false);
-
+        
         comboTeacherarray = userModel.currentteahcer();
         comboTeacher = new JComboBox<>(comboTeacherarray);
 
@@ -948,6 +963,9 @@ public class PlutoFrame extends JFrame {
         addsubroom.setText("");
 
         SpringLayout s4 = new SpringLayout();
+        
+        
+        
         addpanel.setLayout(s4);
 
         addsubnamelabel.setForeground(Color.white);
@@ -957,7 +975,7 @@ public class PlutoFrame extends JFrame {
         addsubreqlabel.setForeground(Color.white);
         reqsublabel.setForeground(Color.white);
         teacherlabel.setForeground(Color.white);
-
+        
         addpanel.add(addsubnamelabel);
         addpanel.add(addsubregsemlabel);
         addpanel.add(addsubroomlabel);
@@ -974,7 +992,7 @@ public class PlutoFrame extends JFrame {
         addpanel.add(teacherlabel);
         addpanel.add(comboTeacher);
         addpanel.add(addsubject);
-
+        
         //addpanel.add(classboard2);
 
         //s4.putConstraint(SpringLayout.WEST, classboard2, 0, SpringLayout.WEST, addpanel);
@@ -1009,6 +1027,8 @@ public class PlutoFrame extends JFrame {
         s4.putConstraint(SpringLayout.WEST, addsubject, 220, SpringLayout.WEST, addpanel);
         s4.putConstraint(SpringLayout.NORTH, addsubject, 320, SpringLayout.NORTH, addpanel);
 
+        
+        
         reqbox.addActionListener(new ActionListener() {
 
             @Override
@@ -1105,7 +1125,8 @@ public class PlutoFrame extends JFrame {
         subdetteacher.setForeground(Color.white);
         subdettime.setForeground(Color.white);
 
-        subdet.setBackground(Color.WHITE);
+        subdet.setBackground(Color.DARK_GRAY);
+        
         SpringLayout s5 = new SpringLayout();
         subdet.setLayout(s5);
         subdet.add(subdetname);
